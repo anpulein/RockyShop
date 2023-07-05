@@ -1,6 +1,11 @@
-﻿namespace RockyShop.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using RockyShop.Models;
 
-public class ApplicationDbContext 
+namespace RockyShop.Data;
+
+public class ApplicationDbContext : DbContext
 {
-    
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {}
+
+    public DbSet<Category> Category;
 }

@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using RockyShop.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add services NpgSqlDb
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration["ConnectionStrings:RockyShop"]));
 
 var app = builder.Build();
 
