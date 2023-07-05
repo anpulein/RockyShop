@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "l8vDPGCvMpWD2bOnd2dzHOyvGWLsgd8sW+pvIUlEqrV+o9w0VEY7ZyMMKHbVl/VoM2p4sQhZMcavfK8vdyPI3w==",
+  "success": true,
+  "projectFilePath": "E:\\Study\\Projects\\Rider\\RockyShop\\RockyShop\\RockyShop.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.asoft.local/nuget'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
+}
