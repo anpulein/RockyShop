@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ApplicationType>
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Application type list</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="ApplicationType" asp-action="Create" class="btn btn-primary">Create new application type</a>
+        </div>
+    </div>
+    
+    <br/><br/>
+    
+    @if (Model.Any())
+    {
+        <table class="table table-bordered table-striped" style="width: 100%">
+            <thead>
+            <tr>
+                <th>application type name</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td width="50%">@obj.Name</td>
+                    <td></td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No application type exists</p>
+    }
+</div>
