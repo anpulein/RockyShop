@@ -1,9 +1,10 @@
 ﻿@model ApplicationType
 
-<form method="post" asp-controller="ApplicationType" asp-action="Create">
+<form method="post">
+    <input asp-for="Id" hidden/>
     <div class="border p-3">
         <div class="form-group row">
-            <h2 class="text-info pl-3">Add application type</h2>
+            <h2 class="text-info pl-3">Edit application type</h2>
         </div>
         <div class="row">
             <div class="col-8">
@@ -12,7 +13,7 @@
                         <label asp-for="Name"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="Name" class="form-control" />
+                        <input asp-for="Name" class="form-control"/>
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
 
@@ -21,10 +22,13 @@
                     <div class="col-8 offset-4 row">
 
                         <div class="col">
-                            <input type="submit" class="btn btn-info w-100" value="Create" />
+                            <input type="submit" class="btn btn-info w-100" value="Update"/>
                         </div>
                         <div class="col">
-                            <a asp-action="Index" class="btn btn-success w-100">Back</a>
+                            <a asp-action="Index" class="btn btn-success w-100">
+                                <i class="fa-regular fa-right-from-bracket"></i>
+                                Back
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -37,7 +41,6 @@
 </form>
 
 @* Валидация на стороне клиента *@
-
 @section Scripts
 {
     @{
