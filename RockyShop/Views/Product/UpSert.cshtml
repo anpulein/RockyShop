@@ -41,7 +41,7 @@
                         <label asp-for="Product.Description"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="Product.Description" class="form-control"/>
+                        <textatea id="summernote" asp-for="Product.Description" class="form-control"> </textatea>
                         <span asp-validation-for="Product.Description" class="text-danger"></span>
                     </div>
 
@@ -105,6 +105,12 @@
     }
 
     <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                header: 250
+            });
+        });
+    
         function validateInput() {
             if (document.getElementById("uploadBox").value === "") {
                 Swal.fire(
