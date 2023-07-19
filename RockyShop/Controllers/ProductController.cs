@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using RockyShop.Data;
 using RockyShop.Models;
+using RockyShop.Models.ViewModels;
 
 namespace RockyShop.Controllers;
 
@@ -31,27 +32,37 @@ public class ProductController : Controller
     // GET - UPSERT
     public IActionResult UpSert(int? id)
     {
-        IEnumerable<SelectListItem> CateroryDropDown = _db.Category.Select(s => new SelectListItem 
-        {
-            Text = s.Name,
-            Value = s.Id.ToString()
-        });
+        // IEnumerable<SelectListItem> CateroryDropDown = _db.Category.Select(s => new SelectListItem 
+        // {
+        //     Text = s.Name,
+        //     Value = s.Id.ToString()
+        // });
+        //
+        // ViewBag.CateroryDropDown = CateroryDropDown;
         
-        ViewBag.CateroryDropDown = CateroryDropDown;
-        
-        Product product = new Product();
+        // Product product = new Product();
 
+        ProductVM productVM = new ProductVM()
+        {
+            Product = new Product(),
+            CategorySelectList = _db.Category.Select(s => new SelectListItem
+            {
+                Text = s.Name,
+                Value = s.Id.ToString()
+            })
+        };
+        
         if (id == null)
         {
             // this is for create
-            return View(product);
+            return View(productVM);
         }
         else
         {
-            product = _db.Product.Find(id);
-            if (product == null) return NotFound();
+            productVM.Product = _db.Product.Find(id);
+            if (productVM.Product == null) return NotFound();
             
-            return View(product);
+            return View(productVM);
         }
     }
 
